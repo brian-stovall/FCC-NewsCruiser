@@ -11,5 +11,46 @@
 	<link href='news.css' rel='stylesheet'>
 </head>
 <body>
+	<!-- begin navbar -->
+	<nav class='navbar navbar-inverse navbar-fixed-top'>
+		<div class='navbar-header'>
+			<div class='navbar-brand'>FreeCodeCamp News Cruiser</div>
+		</div>
+
+		<div id='navbar' class='navbar'>
+			<ul class='nav navbar-nav navbar-right'>
+				<li>
+					<div class='dropdown'>
+						<button class='btn btn-default dropdown-toggle' type='button'
+						id='sortSelector' data-toggle='dropdown' aria-haspopup='true'
+						aria-expanded='true'>
+							Sort By <span class='caret'></span>
+						</button>
+						<ul class='dropdown-menu' aria-labelledby='sortSelectorMenu'>
+							<li><a id='sortByPopularity'>Popularity</a></li>
+							<li><a id='sortByTime'>Time Posted</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- end navbar -->
+
+	<div id='newsCarousel' class='carousel slide'>
+		<div class='carousel-inner'>
+			<div class='item active'>
+				<img class='first-slide'>
+				<div class='container'>
+					<div class='carousel-caption'>
+						<h1 class='headline'></h1>
+						<p class='rank'></p>
+						<p class='time'></p>
+						<p class='auth'></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
