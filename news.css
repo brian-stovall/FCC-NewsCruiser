@@ -1,4 +1,15 @@
+nav {
+	height:10vh;
+}
+
 .nav {
 	margin-right:10vw;
 	margin-top:3vh;
 }
+
+.carousel-inner > .item > img {
+	position:relative;
+	width:100vw;
+	height:100vh;
+}
+	

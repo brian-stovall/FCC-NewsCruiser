@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	var grab = document.getElementById.bind(document);
 	var slides = document.getElementsByClassName('item');
+	var newsCarousel = grab('newsCarousel');
 
 	//set up and obtain the api data
 	var newsRequest = new XMLHttpRequest();
@@ -22,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	function populate(data) {
 		for (var i = 0; i < 10; i++)
 			populateSlide(slides[i], data[i]);
+
+		$('#newsCarousel').carousel();
 	}
 
 	//helper function that populates a single slide element
