@@ -2,8 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	var grab = document.getElementById.bind(document);
 	var newsCarousel = grab('newsCarousel');
-	var sortPopularity = grab('sortByPopularity');
-	var sortTime = grab('sortByTime');
+	var sortSelector = grab('sortSelector');
 
 	var slides = document.getElementsByClassName('item');
 
@@ -13,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	//store the JSON retreived from the API
 	var data;
+	var sortedData;
 
 	newsRequest.open('GET', apiURL);
 	newsRequest.send();
@@ -21,33 +21,47 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (newsRequest.status >=200 && newsRequest.status <= 400) {
 			console.log('success rec\'d: ' + newsRequest.responseText);
 			data = (JSON.parse(newsRequest.responseText));
+			sortData('popularity');
 			populate();
 	  }
 		else console.log('fail... rec\'d: '  + newsRequest.responseText);
 	}
 
+	sortSelector.onclick = () => {
+		if (sortSelector.textContent === 'Popular') {
+			sortSelector.textContent = 'New';
+			sortData('timePosted');
+			populate();
+		}
+		else {
+			sortSelector.textContent = 'Popular';
+			sortData('popularity');
+			populate();
+		}
+		$('#newsCarousel').carousel(0);
+	}
+
 	//sort the data by popularity or time posted
 	function sortData(sortfield) {
 		if (sortfield === 'popularity')
-			data = data.sort( (cur, prev) => {return prev.rank - cur.rank;});
+			sortedData = data.sort( (cur, prev) => {return prev.rank - cur.rank;});
 		else
-			data = data.sort( (cur, prev) => {return prev.timePosted - cur.timePosted;});
+			sortedData = data.sort( (cur, prev) => {return prev.timePosted - cur.timePosted;});
 	}
 
 	//populate with the top 10 news stories based on the desired field
 	function populate() {
-		sortData('popularity');
-
+		//build the slides
 		for (var i = 0; i < 10; i++)
-			populateSlide(slides[i], data[i]);
+			populateSlide(slides[i], sortedData[i]);
 
-	//make the carousel controls visible
-	var controls = document.getElementsByClassName('carousel-control');
-	for (i = 0; i < controls.length; i++)
-		controls[i].style.visibility='visible';
+		//make the carousel controls visible
+		var controls = document.getElementsByClassName('carousel-control');
+		for (i = 0; i < controls.length; i++)
+			controls[i].style.visibility='visible';
 
-  //start the carousel
-	$('#newsCarousel').carousel({interval:false});
+		//start the carousel
+		$('#newsCarousel').carousel({interval:false});
 	
 	}
 

@@ -7,15 +7,6 @@ nav {
 	max-height:10vh;
 }
 
-.nav {
-	position:fixed;
-	top:1.5vh;
-	right:2vw;
-}
-
-.btn {
-}
-
 @media (max-width:900px) {
 	.navbar-brand {
 		font-size:5vw;
@@ -29,9 +20,20 @@ nav {
 
 .carousel-inner > .item > img {
 	position:relative;
-	width:100vw;
+	width:100vw; 
 	height:100vh;
 }
+
+.articleLink h1 {
+	font-size:30px;
+}
+@media (max-width:500px)
+{
+	.articleLink h1 {
+		font-size:6vw;
+	}
+}
+
 	
 .articleLink:hover, .profileLink:hover {
 	text-decoration:none;
@@ -39,4 +41,10 @@ nav {
 
 .carousel-control {
 	visibility:hidden;
+}
+
+#sortSelector {
+	position:absolute;
+	right:5vw;
+	top:8px;
 }
