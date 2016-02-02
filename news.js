@@ -34,13 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			data = data.sort( (cur, prev) => {return prev.timePosted - cur.timePosted;});
 	}
 
-	sortTime.onclick = () => {
-		sortData('time');
-		populate();
-	}
-
-	//
-
 	//populate with the top 10 news stories based on the desired field
 	function populate() {
 		sortData('popularity');
