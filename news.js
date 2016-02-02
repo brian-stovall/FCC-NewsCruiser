@@ -68,8 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	//helper function that populates a single slide element
 	function populateSlide(slide, entry) {
 		//use the image field, or the author.picture if it doesn't exist
-		if (entry.image) slide.getElementsByTagName('img')[0].src = entry.image;
-		else slide.getElementsByTagName('img')[0].src = entry.author.picture;
+		if (entry.image) slide.getElementsByClassName('carouselImage')[0]
+			.style['background-image'] = 'url(' + entry.image + ')';
+		else slide.getElementsByClassName('carouselImage')[0].style['background-image'] =
+			'url(' + entry.author.picture + ')';
 
 		//now load the text fields
 		slide.getElementsByTagName('h1')[0].textContent = entry.headline;

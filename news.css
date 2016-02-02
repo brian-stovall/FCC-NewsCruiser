@@ -17,11 +17,11 @@ nav {
 	font-size:3vw;
 }
 
-
-.carousel-inner > .item > img {
+.carouselImage {
 	position:relative;
 	width:100vw; 
 	height:100vh;
+	background-size:cover;
 }
 
 .articleLink h1 {
