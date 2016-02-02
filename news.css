@@ -1,11 +1,31 @@
+body {
+	background-color:black;
+}
+
 nav {
-	height:10vh;
+	min-height:10vh;
+	max-height:10vh;
 }
 
 .nav {
-	margin-right:10vw;
-	margin-top:3vh;
+	position:fixed;
+	top:1.5vh;
+	right:2vw;
 }
+
+.btn {
+}
+
+@media (max-width:900px) {
+	.navbar-brand {
+		font-size:5vw;
+	}
+}
+
+.navbar-brand {
+	font-size:3vw;
+}
+
 
 .carousel-inner > .item > img {
 	position:relative;
@@ -13,3 +33,10 @@ nav {
 	height:100vh;
 }
 	
+.articleLink:hover, .profileLink:hover {
+	text-decoration:none;
+}
+
+.carousel-control {
+	visibility:hidden;
+}
